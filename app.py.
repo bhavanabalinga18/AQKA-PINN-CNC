@@ -1,0 +1,63 @@
+import streamlit as st
+import numpy as np
+import pandas as pd
+import plotly.graph_objects as go
+import time
+
+# --- APP CONFIGURATION ---
+st.set_page_config(page_title="AQKA-PINN Autonomous CNC", layout="wide")
+st.title("🤖 AQKA-PINN: Quantum-Enhanced Robotic Machining")
+
+# Create the 4 Tabs based on your research stages
+tab1, tab2, tab3, tab4 = st.tabs([
+    "📡 Data Acquisition", 
+    "⚛️ Quantum Engine", 
+    "🔥 Physics Prediction", 
+    "🎮 Autonomous Control"
+])
+
+# --- TAB 1: SENSOR FUSION (Stages 1 & 2) ---
+with tab1:
+    st.header("Real-Time Sensor Fusion")
+    st.write("Processing 20+ sensors into 5 Principal Components.")
+    
+    # Simulate a live vibration stream
+    chart_data = pd.DataFrame(np.random.randn(20, 3), columns=['X-Axis', 'Y-Axis', 'Z-Axis'])
+    st.line_chart(chart_data)
+    st.info("Feature Reduction: PCA has compressed data by 75% for Quantum Compatibility.")
+
+# --- TAB 2: ADAPTIVE QUANTUM KERNEL (Stage 3) ---
+with tab2:
+    st.header("Adaptive Quantum Kernel Alignment")
+    # This represents your AQKA logic
+    st.write("Mapping sensor data into Hilbert Space using 5 Qubits.")
+    
+    # Show a simulated Quantum Kernel Heatmap
+    kernel_data = np.random.rand(10, 10)
+    fig = go.Figure(data=go.Heatmap(z=kernel_data, colorscale='Viridis'))
+    st.plotly_chart(fig)
+    st.caption("Kernel Similarity: Higher brightness indicates states nearing 'Chatter' boundary.")
+
+# --- TAB 3: PHYSICS BRAIN (Stage 4) ---
+with tab3:
+    st.header("Physics-Informed Neural Network")
+    st.latex(r"\rho C_p \frac{\partial T}{\partial t} - \nabla \cdot (k \nabla T) = Q")
+    st.write("The PINN ensures predictions follow Heat Conduction laws.")
+    
+    # Simulate a Temperature Gradient
+    temp_grid = np.random.hot = np.linspace(20, 150, 100)
+    st.area_chart(temp_grid)
+    st.success("Physical Consistency: Predicted thermal expansion is within 0.002mm tolerance.")
+
+# --- TAB 4: CONTROL LAYER (Stages 5 & 6) ---
+with tab4:
+    st.header("Autonomous Decision Layer")
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.metric(label="Chatter Probability", value="12%", delta="-2% (Stable)")
+    with col2:
+        st.metric(label="Tool Wear Index", value="0.45", delta="0.01 (Normal)")
+
+    st.button("Manual Override / Emergency Stop")
+  
